@@ -1,27 +1,21 @@
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivy.core.window import Window
 from kivymd.app import MDApp
-from kivymd.uix.screen import MDScreen
-from kivy.uix.screenmanager import ScreenManager
+
+Window.size = (320, 800)
 
 
-class BaseScreen(MDScreen):
+class HomeWindow(MDBoxLayout):
     pass
 
 
-class HomeScreen(MDScreen):
+class NavBox(MDBoxLayout):
     pass
 
 
-class QuizScreen(MDScreen):
-    pass
-
-
-class MyScreenManager(ScreenManager):
-    pass
-
-
-class MainApp(MDApp):
+class HomeApp(MDApp):
     def build(self):
-        return MyScreenManager()
+        return HomeWindow()
 
 
-MainApp().run()
+HomeApp().run()

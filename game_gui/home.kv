@@ -1,0 +1,69 @@
+#: import Window kivy.core.window.Window
+<NavBox>:
+    canvas.before:
+        Color:
+            rgba: .190, .189, .191, .3
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: 50
+    padding: dp(5), dp(5)
+    MDLabel:
+        text: "Menu"
+        font_size: 18
+        theme_text_color: "Custom"
+        text_color: .252, .252, .252, .8
+        size_hint_x: .15
+    MDLabel:
+        text: "Fernão Magalhães"
+        font_size: 20
+        bold: True
+        halign: "center"
+        theme_text_color: "Custom"
+        text_color: .252, .252, .252, 1
+        size_hint_x: .5
+    MDLabel:
+        text: "Cenas"
+        font_size: 18
+        halign: "right"
+        theme_text_color: "Custom"
+        text_color: .252, .252, .252, .8
+        size_hint_x: .15
+
+<HomeWindow>:
+    id: home_win
+    orientation: "vertical"
+    spacing: 10
+    space_x: self.size[0]  / 20
+
+    NavBox:
+        padding: dp(home_win.space_x), dp(5)
+
+    MDBoxLayout:
+        padding: dp(home_win.space_x), dp(5)
+        size_hint_y: .8
+        canvas.before:
+            Color:
+                rgba: 0, 0, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        MDLabel:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Fernão Magalhães"
+            bold: True
+            font_size: 20
+            halign: "center"
+
+    MDBoxLayout:
+        size_hint_y: None
+        height: 50
+
+
+
