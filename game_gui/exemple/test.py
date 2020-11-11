@@ -28,3 +28,67 @@ canvas.before:
         Rectangle:
             pos: self.pos
             size: self.size
+
+
+###################
+MDBoxLayout:
+            MDLabel:
+                canvas.before:
+                    Color:
+                        rgba: 1, 0, 0, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 60
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                bold: True
+                font_size: 20
+                halign: "center"
+
+            MDGridLayout:
+                spacing: 10
+                cols: 1 if Window.size[0] <= 460 else 2
+                size_hint_y: None
+                height:
+                MDLabel:
+                    text: "Donec mollis viverra lacinia. Sed in purus ligula. Praesent et imperdiet felis, a ornare eros. Proin sapien ipsum, fringilla nec ornare non, gravida non purus. Sed consequat orci a risus suscipit convallis"
+                    font_size: 16
+                    size_hint_y: None
+                    height: 150
+
+                MDLabel:
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0, 0, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    text: str(Window.size)
+                    bold: True
+                    font_size: 20
+                    halign: "center"
+                    size_hint_y: None
+                    height:
+                    size_hint_x: 1 if Window.size[0] <= 460 else .2
+
+                MDLabel:
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    size_hint_y: None
+                    height: 200
+                    text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt, sem velit porta nibh, eget condimentum ipsum risus eu felis. Morbi non justo blandit, tempor nisi eu, vehicula massa. Ut aliquet nunc viverra, egestas nisl id, pharetra purus. Vestibulum imperdiet sem varius, ornare tellus eu, aliquam massa."
+                MDLabel:
+                    canvas.before:
+                        Color:
+                            rgba: 0, 1, 0, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    size_hint_y: None
+                    height: 200
+                    text: "Cras tristique dapibus enim at faucibus. Nam facilisis mi id mi bibendum, nec eleifend ligula lacinia." *5

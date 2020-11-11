@@ -1,6 +1,7 @@
 from kivy.core.window import Window
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.app import MDApp
+from kivy.base import runTouchApp
 
 Window.size = (320, 800)
 
@@ -17,10 +18,9 @@ class ContentArea(MDBoxLayout):
     pass
 
 
-
 class HomeApp(MDApp):
     def build(self):
         return HomeWindow()
 
 
-HomeApp().run()
+runTouchApp(HomeApp().run())
