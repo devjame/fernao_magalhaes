@@ -1,5 +1,5 @@
-from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.core.window import Window
+from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.app import MDApp
 
 Window.size = (320, 800)
@@ -11,6 +11,11 @@ class HomeWindow(MDBoxLayout):
 
 class NavBox(MDBoxLayout):
     pass
+
+
+class ContentArea(MDBoxLayout):
+    pass
+
 
 
 class HomeApp(MDApp):
