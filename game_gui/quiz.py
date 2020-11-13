@@ -1,9 +1,9 @@
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
-import fernao_magalhaes.game_gui.homescreen.home as hs_name
+from home import NavBox
 
 
-class QuizNavBox(hs_name.NavBox):
+class QuizNavBox(NavBox):
     pass
 
 
