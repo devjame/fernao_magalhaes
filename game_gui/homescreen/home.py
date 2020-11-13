@@ -1,7 +1,7 @@
 from kivy.core.window import Window
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.gridlayout import MDGridLayout
 from kivymd.app import MDApp
-from kivy.base import runTouchApp
 
 Window.size = (320, 800)
 
@@ -10,7 +10,7 @@ class HomeWindow(MDBoxLayout):
     pass
 
 
-class NavBox(MDBoxLayout):
+class NavBox(MDGridLayout):
     pass
 
 
@@ -23,4 +23,5 @@ class HomeApp(MDApp):
         return HomeWindow()
 
 
-runTouchApp(HomeApp().run())
+if __name__ == "__main__":
+    HomeApp().run()

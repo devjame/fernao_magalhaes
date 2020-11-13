@@ -7,30 +7,31 @@
         Rectangle:
             pos: self.pos
             size: self.size
+    cols: 3
     size_hint_y: None
     height: 50
     padding: dp(5), dp(5)
-    MDLabel:
-        text: "Menu"
-        font_size: 18
-        theme_text_color: "Custom"
+
+    MDFlatButton:
+        text: "Home"
         text_color: .252, .252, .252, .8
-        size_hint_x: .15
+
+
     MDLabel:
         text: "Fernão Magalhães"
-        font_size: 20
+        font_size: 16
         bold: True
         halign: "center"
         theme_text_color: "Custom"
         text_color: .252, .252, .252, 1
-        size_hint_x: .5
-    MDLabel:
+
+
+    MDFlatButton:
         text: "Cenas"
-        font_size: 18
-        halign: "right"
-        theme_text_color: "Custom"
         text_color: .252, .252, .252, .8
-        size_hint_x: .15
+
+
+
 
 <ContentArea>:
     orientation: 'vertical'
@@ -66,9 +67,11 @@
 
 
             MDBoxLayout:
+                orientation: 'vertical'
                 size_hint_y: None
                 Image:
-                    source: 'img/image-placeholder.png'
+                    source: 'img/Yacht.png'
+                    size_hint_x: 1
                     size: self.size
 
             MDLabel:
@@ -104,7 +107,7 @@
         padding: [0, 0, 0, 10]
         canvas.before:
             Color:
-                rgba: 0, 1, 0, 1
+                rgba: .190, .189, .191, .3
             Rectangle:
                 pos: self.pos
                 size: self.size
