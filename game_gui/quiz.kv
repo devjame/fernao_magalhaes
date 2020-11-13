@@ -1,6 +1,133 @@
-#:include homescreen/home.kv
+#: import Window kivy.core.window.Window
 
-<QuixNavBox@NavBox>:
+<QuizNavBox>:
+    canvas.before:
+        Color:
+            rgba: .190, .189, .191, .3
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    cols: 3
+    size_hint_y: None
+    height: 50
+    padding: dp(5), dp(5)
 
-QuizWindow:
+    MDFlatButton:
+        text: "Home"
+        text_color: .252, .252, .252, .8
+
+
+    MDLabel:
+        text: "Fernão Magalhães"
+        font_size: 16
+        bold: True
+        halign: "center"
+        theme_text_color: "Custom"
+        text_color: .252, .252, .252, 1
+
+
+    MDFlatButton:
+        text: "Cenas"
+        text_color: .252, .252, .252, .8
+
+<QuizContentArea>:
+    id: q-content_area
+    orientation: 'vertical'
+    spacing: 10
+
+    MDLabel:
+        canvas.before:
+            Color:
+                rgba: 0, .5, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        font_size: 16
+        halign: "center"
+        size_hint_y: None
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        size_hint_y: None
+        Image:
+            source: 'img/image-placeholder.png'
+            size_hint_x: 1
+            size: self.size
+
+    MDLabel:
+        text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt, sem velit porta nibh, eget condimentum ipsum risus eu felis."
+        font_size: 16
+        size_hint_y: .2
+        canvas.before:
+            Color:
+                rgba: 0, .5, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    MDGridLayout:
+        cols: 2
+        spacing: 10
+        size_hint_y: .5
+        MDCheckbox:
+            id: cb-index_1
+            size_hint: None, None
+            size: "50dp", "50dp"
+
+        MDLabel:
+            id: lbl-index_1
+            canvas.before:
+                Color:
+                    rgba: 0, .5, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt"
+            font_size: 13
+
+        MDCheckbox:
+            id: cb-index_2
+            size_hint: None, None
+            size: "48dp", "48dp"
+
+        MDLabel:
+            id: lbl-index_2
+            text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt"
+            font_size: 13
+
+        MDCheckbox:
+            id: cb-index_3
+            size_hint: None, None
+            size: "48dp", "48dp"
+
+        MDLabel:
+            id: lbl-index_3
+            text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt"
+            font_size: 13
+
+        MDCheckbox:
+            id: cb-index_4
+            size_hint: None, None
+            size: "48dp", "48dp"
+
+        MDLabel:
+            id: lbl-index_4
+            text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt"
+            font_size: 13
+
+
+
+<QuizWindow>:
+    id: quiz_win
+    orientation: 'vertical'
+    space_x: self.size[0]  / 20 if Window.size[0] <= 1000 else self.size[0] / 10
+    spacing: 10
+
     QuizNavBox:
+        padding: dp(quiz_win.space_x), dp(5)
+
+    QuizContentArea:
+        padding: dp(quiz_win.space_x), dp(5)
+
+

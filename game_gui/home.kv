@@ -48,7 +48,6 @@
             spacing: 10
 
             MDLabel:
-
                 size_hint_y: None
                 height: self.texture_size[1]
                 text_size: self.width, None
@@ -99,22 +98,6 @@
 
     ContentArea:
         padding: [dp(home_win.space_x),10, dp(home_win.space_x), 2]
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint_y: None
-        height: 55
-        padding: [0, 0, 0, 10]
-        canvas.before:
-            Color:
-                rgba: .190, .189, .191, .3
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        MDRaisedButton:
-            text: "Começar"
-            md_bg_color: .190, .189, .191, 1
-            pos_hint: { "center_x": .5, "y": 1}
 
 
 

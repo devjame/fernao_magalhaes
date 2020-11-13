@@ -1,0 +1,53 @@
+#: include home.kv
+#: include quiz.kv
+#: import HomeWindow home.HomeWindow
+#: import QuizWindow quiz.QuizWindow
+
+<HomeScreen>:
+    name: "home"
+    HomeWindow:
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: 55
+            padding: [ 0, 0, 0, 10 ]
+            canvas.before:
+                Color:
+                    rgba: .190, .189, .191, .3
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            MDRaisedButton:
+                text: "Começar"
+                md_bg_color: .190, .189, .191, 1
+                pos_hint: { "center_x": .5, "y": 1 }
+                on_press:
+                    app.root.ids.home_in.ids.screen_manager.current="quiz"
+
+<QuizScreen>:
+    name: "quiz"
+    QuizWindow:
+    MDBoxLayout:
+        size_hint_y: None
+        height: 50
+        cols: 1
+        padding: 10
+        canvas.before:
+            Color:
+                rgba: .190, .189, .191, .3
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDRaisedButton:
+            text: "Desistir"
+            md_bg_color: .190, .189, .191, 1
+
+
+        MDBoxLayout:
+
+        MDRaisedButton:
+            text: "Avançar"
+            md_bg_color: .190, .189, .191, 1
+            on_press:
+                app.root.ids.screen_manager.current = 'home'

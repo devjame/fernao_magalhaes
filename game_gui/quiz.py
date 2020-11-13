@@ -1,20 +1,28 @@
-from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
-from home import NavBox
-
-
-class QuizNavBox(NavBox):
-    pass
+from kivymd.uix.gridlayout import MDGridLayout
+from kivy.uix.screenmanager import Screen
 
 
 class QuizWindow(MDBoxLayout):
     pass
 
 
-class QuizApp(MDApp):
-    def build(self):
-        return QuizWindow()
+class QuizNavBox(MDGridLayout):
+    pass
 
 
-if __name__ == "__main__":
-    QuizApp().run()
+class QuizContentArea(MDBoxLayout):
+    pass
+
+
+class QuizScreen(Screen):
+    pass
+
+
+# class QuizApp(MDApp):
+#     def build(self):
+#         return QuizWindow()
+#
+#
+# if __name__ == "__main__":
+#     QuizApp().run()
