@@ -1,5 +1,6 @@
 from kivymd.app import MDApp
-from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.uix.screenmanager import Screen
+from kivy.lang import Builder
 
 
 from kivy.core.window import Window
@@ -12,27 +13,22 @@ class HomeScreen(Screen):
 
 
 class QuizScreen(Screen):
-    pass
+    def __init__(self, **kwargs):
+        super(QuizScreen, self).__init__(**kwargs)
 
-
-class Manager(ScreenManager):
-    pass
+    def on_checkbox_active(self, checkbox, value):
+        if value:
+            print('The checkbox', checkbox, 'is inactive', 'and', checkbox.state, 'state')
+            print(self.ids.lbl_index_1.text)
+        else:
+            print('The checkbox', checkbox, 'is inactive', 'and', checkbox.state, 'state')
 
 
 class MainApp(MDApp):
 
-    def print_ids(self, *args):
-        print(self.root.ids)
-
     def build(self):
-        # add the layout
-        self.print_ids()
-        home_screen = HomeScreen()
-        quiz_screen = QuizScreen()
-        manager = Manager(id="screen_manager")
-        manager.add_widget(home_screen)
-        manager.add_widget(quiz_screen)
-        return manager
+        print(self.root.ids.quiz_screen.ids)
+        return Builder.load_file("main.kv")
 
 
 MainApp().run()

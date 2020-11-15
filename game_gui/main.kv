@@ -1,53 +1,56 @@
 #: include home.kv
 #: include quiz.kv
-#: import HomeWindow home.HomeWindow
-#: import QuizWindow quiz.QuizWindow
 
-<HomeScreen>:
-    name: "home"
-    HomeWindow:
-        MDBoxLayout:
-            orientation: 'vertical'
-            size_hint_y: None
-            height: 55
-            padding: [ 0, 0, 0, 10 ]
-            canvas.before:
-                Color:
-                    rgba: .190, .189, .191, .3
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-            MDRaisedButton:
-                text: "Começar"
-                md_bg_color: .190, .189, .191, 1
-                pos_hint: { "center_x": .5, "y": 1 }
-                on_press:
-                    app.root.ids.home_in.ids.screen_manager.current="quiz"
+#<HomeScreen>:
+#    name: "home"
+#    HomeWindow:
 
-<QuizScreen>:
-    name: "quiz"
-    QuizWindow:
-    MDBoxLayout:
-        size_hint_y: None
-        height: 50
-        cols: 1
-        padding: 10
+
+
+MDBoxLayout:
+    id: main_win
+    orientation: "vertical"
+    space_x: self.size[0]  / 20 if Window.size[0] <= 1000 else self.size[0] / 10
+    MDGridLayout:
         canvas.before:
             Color:
                 rgba: .190, .189, .191, .3
             Rectangle:
                 pos: self.pos
                 size: self.size
+        cols: 3
+        size_hint_y: None
+        height: 50
+        padding: dp(5), dp(5)
 
-        MDRaisedButton:
-            text: "Desistir"
-            md_bg_color: .190, .189, .191, 1
+        MDFlatButton:
+            text: "Home"
+            text_color: .252, .252, .252, .8
 
 
-        MDBoxLayout:
+        MDLabel:
+            text: "Fernão Magalhães"
+            font_size: 16
+            bold: True
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: .252, .252, .252, 1
 
-        MDRaisedButton:
-            text: "Avançar"
-            md_bg_color: .190, .189, .191, 1
-            on_press:
-                app.root.ids.screen_manager.current = 'home'
+
+        MDFlatButton:
+            text: "Cenas"
+            text_color: .252, .252, .252, .8
+
+    ScreenManager:
+        size_hint: 1, .8
+        id: screen_manager
+        padding: dp(main_win.space_x), dp(5)
+        HomeScreen:
+            name: "home_screen"
+            id: home_screen
+        QuizScreen:
+            name: "quiz_screen"
+            id: quiz_screen
+
+
+

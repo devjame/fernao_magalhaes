@@ -1,103 +1,80 @@
 #: import Window kivy.core.window.Window
 
-<NavBox>:
-    canvas.before:
-        Color:
-            rgba: .190, .189, .191, .3
-        Rectangle:
-            pos: self.pos
+<HomeScreen>:
+    MDGridLayout:
+        id: content_area_grid
+        cols: 1
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
             size: self.size
-    cols: 3
-    size_hint_y: None
-    height: 50
-    padding: dp(5), dp(5)
+            GridLayout:
+                id: content_area
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 10
+                padding: [20, 10, 20, 0]
 
-    MDFlatButton:
-        text: "Home"
-        text_color: .252, .252, .252, .8
+                MDLabel:
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    text_size: self.width, None
+                    height: self.texture_size[1]
+                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    bold: True
+                    font_size: 20
+                    halign: "center"
+
+                MDLabel:
+                    text: "Donec mollis viverra lacinia. Sed in purus ligula. Praesent et imperdiet felis, a ornare eros. Proin sapien ipsum, fringilla nec ornare non, gravida non purus. Sed consequat orci a risus suscipit convallis"
+                    font_size: 18
+                    text_size: self.width, None
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
 
-    MDLabel:
-        text: "Fernão Magalhães"
-        font_size: 16
-        bold: True
-        halign: "center"
-        theme_text_color: "Custom"
-        text_color: .252, .252, .252, 1
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    Image:
+                        source: 'img/Yacht.png'
+                        size_hint_x: 1
+                        size: self.size
+                        allow_stretch: True
+                        keep_ratio: False
 
+                MDLabel:
+                    text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt, sem velit porta nibh, eget condimentum ipsum risus eu felis. Morbi non justo blandit, tempor nisi eu, vehicula massa. Ut aliquet nunc viverra, egestas nisl id, pharetra purus. Vestibulum imperdiet sem varius, ornare tellus eu, aliquam massa."
+                    font_size: 18
+                    text_size: self.width, None
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
-    MDFlatButton:
-        text: "Cenas"
-        text_color: .252, .252, .252, .8
+                MDLabel:
 
+                    font_size: 18
+                    text_size: self.width, None
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    text: "Cras tristique dapibus enim at faucibus. Nam facilisis mi id mi bibendum, nec eleifend ligula lacinia." *5
 
-
-
-<ContentArea>:
-    orientation: 'vertical'
-
-    ScrollView:
-        do_scroll_x: False
-        do_scroll_y: True
-        size: self.size
-
-        GridLayout:
-            cols: 1
+        MDBoxLayout:
+            orientation: 'vertical'
             size_hint_y: None
-            height: self.minimum_height
-            spacing: 10
-
-            MDLabel:
-                size_hint_y: None
-                height: self.texture_size[1]
-                text_size: self.width, None
-                height: self.texture_size[1]
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                bold: True
-                font_size: 20
-                halign: "center"
-
-            MDLabel:
-                text: "Donec mollis viverra lacinia. Sed in purus ligula. Praesent et imperdiet felis, a ornare eros. Proin sapien ipsum, fringilla nec ornare non, gravida non purus. Sed consequat orci a risus suscipit convallis"
-                font_size: 18
-                text_size: self.width, None
-                size_hint_y: None
-                height: self.texture_size[1]
-
-
-            MDBoxLayout:
-                orientation: 'vertical'
-                size_hint_y: None
-                Image:
-                    source: 'img/Yacht.png'
-                    size_hint_x: 1
+            height: 55
+            padding: [ 0, 0, 0, 10 ]
+            canvas.before:
+                Color:
+                    rgba: .190, .189, .191, .5
+                Rectangle:
+                    pos: self.pos
                     size: self.size
-
-            MDLabel:
-                text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt, sem velit porta nibh, eget condimentum ipsum risus eu felis. Morbi non justo blandit, tempor nisi eu, vehicula massa. Ut aliquet nunc viverra, egestas nisl id, pharetra purus. Vestibulum imperdiet sem varius, ornare tellus eu, aliquam massa."
-                font_size: 18
-                text_size: self.width, None
-                size_hint_y: None
-                height: self.texture_size[1]
-
-            MDLabel:
-
-                font_size: 18
-                text_size: self.width, None
-                size_hint_y: None
-                height: self.texture_size[1]
-                text: "Cras tristique dapibus enim at faucibus. Nam facilisis mi id mi bibendum, nec eleifend ligula lacinia." *5
-
-<HomeWindow>:
-    id: home_win
-    orientation: "vertical"
-    space_x: self.size[0]  / 20 if Window.size[0] <= 1000 else self.size[0] / 10
-
-    NavBox:
-        padding: dp(home_win.space_x), dp(5)
-
-    ContentArea:
-        padding: [dp(home_win.space_x),10, dp(home_win.space_x), 2]
-
-
+            MDRaisedButton:
+                text: "Começar"
+                md_bg_color: .190, .189, .191, 1
+                pos_hint: { "center_x": .5, "y": 1 }
+                on_press:
+                    app.root.ids.screen_manager.transition.direction = 'left'
+                    app.root.ids.screen_manager.current="quiz_screen"
 
