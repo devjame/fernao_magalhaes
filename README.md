@@ -6,7 +6,7 @@ Um aplicativo para a apresentaçao de um jogo sobre a viagem de **Fenão Magalh�
 
 ###Dependencias:
    - Python3.6+
-   - [git](https://git-scm.com/) `sudo apt-get install git`
+   - [kivy](https://kivy.org/#home) 
    
 Primeiro tenha a certeza que tem python3.6 ou maior instalado. 
 
@@ -30,15 +30,18 @@ Cria uma pasta onde queiras trabalhar nela. Dentro da mesma pasta executa os seg
     
     `virtualenv venv`
 
- 3. Ativar o ambiente virtual que criaste
+ 4. Ativar o ambiente virtual que criaste
  
     `source venv/bin/activate`
 
- 4. Instalar os modulos para poder trabalhar com o projeto
+ 5. Instalar os modulos para poder trabalhar com o projeto
  
     `pip install -r requirements.txt`
     
+ 6. Pode executar o programa com o seguinte comando:
  
+    `python main.py`
+    
  ###Assets do Projeto
  Ecrã Home
  
@@ -51,3 +54,6 @@ Cria uma pasta onde queiras trabalhar nela. Dentro da mesma pasta executa os seg
  ![Mobile Quiz screen](game_gui/img/projeto/Quiz Screen.png)
  
  ![Desktop Quiz screen](game_gui/img/projeto/Desktop-Quiz-Screen.png)
+ 
+ 
+Copyright @devjame
