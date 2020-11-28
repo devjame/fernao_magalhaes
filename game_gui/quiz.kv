@@ -1,4 +1,9 @@
 #: import Window kivy.core.window.Window
+<BoxOpcao>:
+    id: content_grid
+    cols: 2
+    spacing: 10
+    size_hint_y: .5
 
 <QuizScreen>:
     MDBoxLayout:
@@ -16,70 +21,19 @@
                 halign: "center"
                 size_hint_y: .1
 
-            MDBoxLayout:
-                orientation: 'vertical'
-                size_hint_y: .15
-
-                Image:
-                    source: 'img/image-placeholder.png'
-                    size_hint_x: 1
-                    size: self.size
-                    allow_stretch: True
-                    keep_ratio: False
-
             MDLabel:
-                text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt, sem velit porta nibh, eget condimentum ipsum risus eu felis."
+                text: "Após um dia de trabalho exaustivo em  alto mar, entras na taverna dos sevilhanos e pede uma cerveja.\nSentado ao balcão, começas a ouvir uma conversa sobre uma embarcação que parte em breve em descoberta de uma nova rota para as ilhas Molucas."
                 font_size: 16
                 size_hint_y: .2
 
-            MDGridLayout:
-                id: content_grid
-                cols: 2
-                spacing: 10
-                size_hint_y: .5
-                MDCheckbox:
-                    id: cb_index_1
-                    size_hint: None, None
-                    size: "50dp", "50dp"
-                    on_active: app.root.ids.quiz_screen.on_checkbox_active(*args)
+            MDLabel:
+                text: "Gostaria de saber mais?"
+                font_size: 16
+                size_hint_y: .1
+                halign: "center"
 
-                MDLabel:
-                    id: lbl_index_1
-                    text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt"
-                    font_size: 14
+            BoxOpcao:
 
-                MDCheckbox:
-                    id: cb_index_2
-                    size_hint: None, None
-                    size: "48dp", "48dp"
-                    on_active: app.root.ids.quiz_screen.on_checkbox_active(*args)
-
-                MDLabel:
-                    id: lbl_index_2
-                    text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt"
-                    font_size: 14
-
-                MDCheckbox:
-                    id: cb_index_3
-                    size_hint: None, None
-                    size: "48dp", "48dp"
-                    on_active: app.root.ids.quiz_screen.on_checkbox_active(*args)
-
-                MDLabel:
-                    id: lbl_index_3
-                    text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt"
-                    font_size: 14
-
-                MDCheckbox:
-                    id: cb_index_4
-                    size_hint: None, None
-                    size: "48dp", "48dp"
-                    on_active: app.root.ids.quiz_screen.on_checkbox_active(*args)
-
-                MDLabel:
-                    id: lbl_index_4
-                    text: "Mauris et lorem augue. Pellentesque euismod, augue ut tristique tincidunt"
-                    font_size: 14
 
         MDBoxLayout:
             id: btn_box
@@ -108,6 +62,7 @@
                 text: "Avançar"
                 md_bg_color: .190, .189, .191, 1
                 on_press:
-                    print(app.root.ids)
+                    app.root.ids.screen_manager.transition.direction = 'left'
+                    app.root.ids.screen_manager.current = "alistamento_screen"
 
 
