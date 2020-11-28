@@ -1,4 +1,4 @@
-exemple/
+game_gui/exemple
 cena.py
-venv
-game_utils.py
+game_gui/venv
+game_gui/game_utils.py
