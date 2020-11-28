@@ -1,5 +1,5 @@
 game_gui/exemple
-cena.py
+game_gui/exemple/cena.py
 game_gui/venv
 game_gui/game_utils.py
 venv
@@ -7,3 +7,5 @@ venv
 __pycache__
 .python-version
 .git
+/game_gui/venv/
+/game_gui/exemple/
