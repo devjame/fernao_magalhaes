@@ -4,7 +4,7 @@ Um aplicativo para a apresentaçao de um jogo sobre a viagem de **Fenão Magalh�
 
 ## Como Iniciar
 
-###Dependencias:
+### Dependencias:
    - Python3.6+
    - [kivy](https://kivy.org/#home) 
    
@@ -42,7 +42,8 @@ Cria uma pasta onde queiras trabalhar nela. Dentro da mesma pasta executa os seg
  
     `python main.py`
     
- ###Assets do Projeto
+ ### Assets do Projeto
+ 
  Ecrã Home
  
  ![Mobile home screen](game_gui/img/projeto/Home-Screen.png)
@@ -56,4 +57,4 @@ Cria uma pasta onde queiras trabalhar nela. Dentro da mesma pasta executa os seg
  ![Desktop Quiz screen](game_gui/img/projeto/Desktop-Quiz-Screen.png)
  
  
-Copyright @devjame
+Copyright [@devjame](https://github.com/devjame)
