@@ -4,3 +4,7 @@ __pycache__
 .git
 /game_gui/venv/
 /game_gui/exemple/
+venv
+bin
+.buildozer
+buildozer.spec

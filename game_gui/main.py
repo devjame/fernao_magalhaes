@@ -1,14 +1,14 @@
 from kivymd.app import MDApp
-from kivy.uix.screenmanager import Screen
+from kivy.uix.screenmanager import Screen, SlideTransition, NoTransition
 from kivy.lang import Builder
+from kivymd.uix.button import MDFlatButton
 from kivymd.uix.selectioncontrol import MDCheckbox
 from kivymd.uix.label import MDLabel
 from kivymd.uix.gridlayout import MDGridLayout
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.core.window import Window
 from kivy.properties import ObjectProperty
-
-Window.size = (320, 800)
+from kivymd.uix.dialog import MDDialog
 
 
 class Alistamento(Screen):
@@ -27,11 +27,13 @@ class Alistamento(Screen):
 
 
 class HomeScreen(Screen):
-    pass
+    def __init__(self, **kwargs):
+        super(HomeScreen, self).__init__(**kwargs)
 
 
 class QuizScreen(Screen):
-    pass
+    def __init__(self, **kwargs):
+        super(QuizScreen, self).__init__(**kwargs)
 
 
 class BoxOpcao(MDGridLayout):
@@ -53,15 +55,33 @@ class BoxOpcao(MDGridLayout):
 
             self.container = MDBoxLayout(size_hint_x=.1)
             self.container.add_widget(self.chkbox)
+
             self.add_widget(self.container)
             self.add_widget(self.lbl)
 
             self.chkref[self.chkbox] = self.opcao[i]
-            print(self.chkbox.y)
+
+    def callback(self, *arg):
+        screen_manager = self.root.ids.screen_manager
+        screen_manager.current = 'home_screen'
+        screen_manager.direction = 'left'
 
     def on_checkbox_active(self, checkbox, value):
         if value:
-            print(f"{checkbox} -> {self.chkref[checkbox]}")
+            if self.chkref[checkbox] == self.opcao[0]:
+                pass
+            else:
+                popup = MDDialog(
+                    text="Fim Prematuro!",
+                    size_hint_x=.8,
+                    buttons=[
+                        MDFlatButton(
+                            text="OK"
+                        )
+                    ],
+                )
+                popup.bind(on_dismis=self.callback)
+                popup.open()
 
 
 class MainApp(MDApp):
@@ -69,5 +89,21 @@ class MainApp(MDApp):
     def build(self):
         return Builder.load_file("main.kv")
 
+    def change_screen(self, screen_manager, screen_nome, direction="forward", mode=''):
 
-MainApp().run()
+        if direction == 'forward':
+            direction = 'left'
+        elif direction == "backward":
+            direction = 'right'
+        elif direction == 'None':
+            screen_manager.transition = NoTransition()
+            screen_manager.current = screen_nome
+            return
+
+        screen_manager.transition = SlideTransition(direction=direction)
+        screen_manager.current = screen_nome
+
+
+main_app = MainApp()
+
+main_app.run()

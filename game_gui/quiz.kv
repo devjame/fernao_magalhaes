@@ -2,10 +2,11 @@
 <BoxOpcao>:
     id: content_grid
     cols: 2
-    spacing: 10
+    spacing: 20
     size_hint_y: .5
 
 <QuizScreen>:
+    _btn_seguinte: root.ids.seguinte
     MDBoxLayout:
         id: q_content_area
         orientation: 'vertical'
@@ -33,8 +34,7 @@
                 halign: "center"
 
             BoxOpcao:
-                cols: 2
-                spacing: 20
+
 
 
         MDBoxLayout:
@@ -54,17 +54,15 @@
                 text: "Desistir"
                 md_bg_color: .190, .189, .191, 1
                 on_press:
-                    app.root.ids.screen_manager.transition.direction = 'right'
-                    app.root.ids.screen_manager.current = "home_screen"
+                    app.change_screen(app.root.ids.screen_manager, "home_screen",'backward')
 
 
             MDBoxLayout:
 
             MDRaisedButton:
+                id: seguinte
                 text: "Avançar"
                 md_bg_color: .190, .189, .191, 1
                 on_press:
-                    app.root.ids.screen_manager.transition.direction = 'left'
-                    app.root.ids.screen_manager.current = "alistamento_screen"
-
+                    app.change_screen(app.root.ids.screen_manager, "alistamento_screen",'forward')
 

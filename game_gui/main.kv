@@ -6,6 +6,7 @@
 MDBoxLayout:
     id: main_win
     orientation: "vertical"
+    screen_manager: root.ids.screen_manager
     space_x: self.size[0]  / 20 if Window.size[0] <= 1000 else self.size[0] / 10
     MDGridLayout:
         canvas.before:

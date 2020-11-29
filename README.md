@@ -52,7 +52,7 @@ Cria uma pasta onde queiras trabalhar nela. Dentro da mesma pasta executa os seg
  
  Ecrã Quiz
  
- ![Mobile Quiz screen](game_gui/img/projeto/Quiz Screen.png)
+ ![Mobile Quiz screen](game_gui/img/projeto/Quiz-Screen.png)
  
  ![Desktop Quiz screen](game_gui/img/projeto/Desktop-Quiz-Screen.png)
  
